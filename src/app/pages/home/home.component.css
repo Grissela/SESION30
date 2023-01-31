@@ -1,0 +1,17 @@
+.lista_usuarios{
+    height: 600px;
+    overflow-y: scroll;
+}
+/* Manejo del Scrool CSS */
+.lista_usuarios::-webkit-scrollbar{
+    /* height: 9px; */
+    width: 10px;
+}
+.lista_usuarios::-webkit-scrollbar-thumb{
+    background-color: #30cfe4;
+    border-radius: 50px;
+}
+.lista_usuarios::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(98, 236, 206);
+}
+

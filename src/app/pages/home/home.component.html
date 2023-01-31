@@ -1,0 +1,65 @@
+
+<div class="w-[50%] mx-auto my-[1.1rem]">
+    <div class="grid grid-cols-2 gap-3">
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gradient-to-r from-emerald-400 to-cyan-400 dark:border-teal-200">
+            <a href="#">
+                <img class="rounded-t-lg" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80" alt="" />
+            </a>
+            <div class="py-5 px-4">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Form Contact</h5>
+                </a>
+                <form [formGroup]="formContacto" class="">
+                        <div class="">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                                <input type="text" formControlName="Nombre" class="mt-2 pl-2 py-2 form-control w-full rounded-lg " id="Nombre" name="Nombre" placeholder="tu nombre">
+
+                                <div *ngIf="formContacto.get('Nombre')?.touched && formContacto.get('Nombre')?.errors?.['required']" class="text-red-600 font-bold">Este campo es requerido</div>
+
+                                <div *ngIf="formContacto.get('Nombre')?.touched && formContacto.get('Nombre')?.errors?.['minlength']" class="text-red-600 font-bold">El campo nombre debe tener más de {{formContacto.get('Nombre')?.errors?.['minlength']?.requiredLength}} caracteres.</div>
+
+                                <div *ngIf="formContacto.get('Nombre')?.touched && formContacto.get('Nombre')?.errors?.['maxlength']" class="text-red-600 font-bold">El campo nombre no debe tener más de {{formContacto.get('Nombre')?.errors?.['maxlength']?.requiredLength}} caracteres.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Apellidos</label>
+                                <input type="text" formControlName="Apellidos" class="mt-2 pl-2 py-2 form-control  w-full rounded-lg " id="exampleFormControlInput1" placeholder="tus apellidos">
+
+                                <div *ngIf="formContacto.get('Apellidos')?.touched && formContacto.get('Apellidos')?.errors?.['required']" class="text-red-600 font-bold">Este campo es requerido</div>
+
+                                <div *ngIf="formContacto.get('Apellidos')?.touched && formContacto.get('Apellidos')?.errors?.['minlength']" class="text-red-600 font-bold">El campo apellido debe tener más de {{formContacto.get('Apellidos')?.errors?.['minlength']?.requiredLength}} caracteres.</div>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                                <input type="email" formControlName="Email" class="mt-2 pl-2 py-2 form-control  w-full rounded-lg" id="exampleFormControlInput1" placeholder="correo@gmail.com">
+
+                                <div *ngIf="formContacto.get('Email')?.touched && formContacto.get('Email')?.errors?.['required']" class="text-red-600 font-bold">Este campo es requerido</div>
+
+                                <div *ngIf="formContacto.get('Email')?.touched && formContacto.get('Email')?.errors?.['email']" class="text-red-600 font-bold">El campo email debe ser email.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Website</label>
+                                <input type="text" formControlName="Website" class=" mt-2 pl-2 py-2 form-control w-full  rounded-lg" id="exampleFormControlInput1" placeholder="tusitio.com.pe">
+                                <div *ngIf="formContacto.get('Website')?.touched && formContacto.get('Website')?.errors?.['required']" class="text-red-600 font-bold">Este campo es requerido</div>
+                            </div>
+                            <div class="text-center">
+                                <button  type="submit" class="bg-cyan-600 text-white py-2 px-4 rounded-lg hover:bg-cyan-800" (click)="agregar()">Aceptar</button>   
+                            </div>
+                       </div>                   
+                </form>             
+            </div>
+        </div>
+        <div class="lista_usuarios">
+            <h2 class="text-lg font-semibold text-center">Listado usuarios</h2>
+            <ul *ngFor="let datos of data">
+                <div class="mt-5">
+                    <li>{{datos.Nombre}}</li>
+                    <li>{{datos.Apellidos}}</li>
+                    <li>{{datos.Email}}</li>
+                    <li>{{datos.Website}}</li>
+                </div>
+            </ul>
+        </div> 
+</div>
